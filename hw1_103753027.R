@@ -10,8 +10,8 @@ if (length(args)==0) {
   stop("USAGE: Rscript hw1_exam.R input", call.=FALSE)
 } else {
   p <- matrix(, nrow = length(args)-1,ncol = 3, byrow = TRUE)
-  num <- 1 
-  for(i in c(length(args)-1)){
+  
+  for(i in c(1:(length(args)-1))){
     #print(num)
     data = read.table(args[i], header = TRUE, sep = ",", col.names = c("persons","weight","height","gender"))
     max_w = 0 #max of weight
@@ -27,12 +27,12 @@ if (length(args)==0) {
       }
     #print(max_h)
     temp = substr(args[i],1,6)
-    p[num,] <- c(temp,max_w,max_h)
-    num = num +1 
+    p[i,] <- c(temp,max_w,max_h)
+    print(i) 
     
   } 
   
-  write.table(p, file = args[2], sep = ",",row.names = FALSE,col.names = list('set','weight','height'))
+  write.table(p, file = args[length(args)], sep = ",",row.names = FALSE,col.names = list('set','weight','height'))
   
 }
 
