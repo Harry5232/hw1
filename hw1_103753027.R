@@ -6,6 +6,7 @@
 args = commandArgs(trailingOnly=TRUE)
 
 if (length(args)==0) {
+  
   stop("USAGE: Rscript hw1_exam.R input", call.=FALSE)
 } else {
   p <- matrix(, nrow = length(args)-1,ncol = 3, byrow = TRUE)
