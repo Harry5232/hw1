@@ -28,6 +28,7 @@ if (length(args)==0) {
     #print(max_h)
     temp = substr(args[i],1,6)
     p[i,] <- c(temp,max_w,max_h)
+    #p[i,] <- list(temp,max_w,max_h)
    
     
   } 
