@@ -4,7 +4,7 @@
 #作業1 完成版 103753027 顏碩亨
 f <- function(n1,n2){
   
-  p <- matrix(, nrow = 1,ncol = 3, byrow = TRUE)
+  #p <- matrix(, nrow = 1,ncol = 3, byrow = TRUE)
   
   #print(num)
   data = read.table(n1, header = TRUE, sep = ",", col.names = c("persons","weight","height","gender"))
@@ -22,15 +22,18 @@ f <- function(n1,n2){
   #print(max_h)
   #temp = substr(n2,1,7)
   #temp = n2
-  temp = strsplit(n2,".csv")[[1]]
-  p[1,] <- c(temp[1],max_w,max_h)
+  weight <- c(max_w)
+  height <- c(max_h)
+  
+  set = strsplit(n2,".csv")[[1]]
+  p <- data.frame(set,weight,height)
+  #p[1,] <- c(temp[1],max_w,max_h)
   #p[i,] <- list(temp,max_w,max_h)
   
   
-  write.table(p, file = n2, sep = ",",row.names = FALSE,col.names = list('set','weight','height'))
+  write.table(p, file = n2, sep = ",",row.names = FALSE)
   return(print("done"))
 }
-
 
 args = commandArgs(trailingOnly=TRUE)
 
@@ -44,7 +47,6 @@ if (length(args)==0) {
   f(args[4],args[2])
   
 }else {
-  
+  stop("USAGE: Rscript hw1_exam.R input", call.=FALSE)
 }
-
 #作業1 完成版 103753027 顏碩亨
