@@ -31,7 +31,7 @@ f <- function(n1,n2){
   #p[i,] <- list(temp,max_w,max_h)
   
   
-  write.table(p, file = n2, sep = ",",row.names = FALSE)
+  write.table(p, file = n2, sep = ",",row.names = FALSE,quote=F)
   return(print("done"))
 }
 
